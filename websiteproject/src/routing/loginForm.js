@@ -10,7 +10,7 @@ function LoginForm(props) {
     }
 
     return (
-        <div>
+        <div className="login-form">
             <TextField sx={{marginTop: 50, width: 150}}
                 name="username"
                 value={user.username}

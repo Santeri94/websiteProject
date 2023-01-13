@@ -1,49 +1,36 @@
 import './App.css';
 import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-
 
 
 import LoginForm from './routing/loginForm.js'
 import NasaPicture from './routing/nasaPicture.js'
 
 
-
-
 function App() {
 
   return (
     <div className="App">
-      <AppBar position="static">
-        <Toolbar>
-          <BrowserRouter>
-          <Link to="/">
-          <Button sx={{ my: 2, color: 'white', display: 'block' }}>
-            Home
-          </Button>
-          </Link>
-          <Link to="/picture">
-          <Button sx={{ my: 2, color: 'white', display: 'block' }}>
-            Picture
-          </Button>
-          </Link>
-          </BrowserRouter>
-        </Toolbar>
-      </AppBar>
       <BrowserRouter>
-      <Routes>
+        <AppBar position="static" style={{ background:'#000000'}}>
+          <Grid container sx={{alignItems: "center", justifyContent: "center"}}>
+            <nav>
+              <Button variant="outlined" color="primary" component={Link} to="/">Home</Button>
+              <Button component={Link} to="/picture">Picture</Button>
+            </nav>
+          </Grid>
+        </AppBar>
+        <Routes>
           <Route path="/" element={<LoginForm />} />
           <Route path="/picture" element={<NasaPicture />} />
         </Routes>
-        </BrowserRouter> 
+      </BrowserRouter>
     </div>
   );
 }
 
 export default App;
-
-// tähä asti toimii, mut ei lataa sivua iteksee
-// poista buttonit ja tee ennemmi linkit <nav> <Link...> kato nasakoulutehtävä
-// sit koita wrappaa ne toolbaariin/appbaariin
+//navigointi toimii
+// tee mahollisuus kirjautumaan ja tekemään tili 
