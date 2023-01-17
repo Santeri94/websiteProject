@@ -9,8 +9,15 @@ function LoginForm(props) {
         setUser({...user, [event.target.name]: event.target.value})
     }
 
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        const userObject = {username:user.username, password:user.password}
+        console.log({userObject})
+    }
+
     return (
-        <div className="login-form">
+        <form className="login-form" onSubmit={handleSubmit}>
             <TextField sx={{marginTop: 50, width: 150}}
                 name="username"
                 value={user.username}
@@ -27,10 +34,10 @@ function LoginForm(props) {
                 label="Password"
                 fullWidth
           />    
-            <Button variant="contained" color="primary" sx={{marginTop: 50, width: 150, height: 55}} onClick={() => {console.log('yay')}}> 
+            <Button variant="contained" color="primary" sx={{marginTop: 50, width: 150, height: 55}} type="submit"> 
               Login 
             </Button>
-        </div>
+        </form>
     )
 
 }

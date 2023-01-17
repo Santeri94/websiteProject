@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 
 
-function NasaPicture(props) {
+function NasaPicture() {
     const [explanation, setExplanation] = useState('');
     const [url, setUrl] = useState('');
     const [mediaType, setMediaType] = useState('');
